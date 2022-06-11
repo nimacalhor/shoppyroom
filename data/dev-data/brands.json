@@ -1,0 +1,93 @@
+[
+  {
+    "id": 1,
+    "title": "estelle",
+    "url": "/product/brand/estelle",
+    "media": {
+      "title": "estelle",
+      "path": "/images/brands/estelle.png",
+      "link": "#",
+      "width": 1200,
+      "height": 1200,
+      "description": "estelle"
+    }
+  },
+  {
+    "id": 2,
+    "title": "lupina",
+    "url": "/product/brand/lupina",
+    "media": {
+      "title": "lupina",
+      "path": "/images/brands/lupina.png",
+      "link": "#",
+      "width": 1200,
+      "height": 1200,
+      "description": "lupina"
+    }
+  },
+  {
+    "id": 3,
+    "title": "middle-part",
+    "url": "/product/brand/middle-part",
+    "media": {
+      "title": "middle-part",
+      "path": "/images/brands/middle-part.png",
+      "link": "#",
+      "width": 1200,
+      "height": 1200,
+      "description": "middle-part"
+    }
+  },
+  {
+    "id": 4,
+    "title": "ouma",
+    "url": "/product/brand/ouma",
+    "media": {
+      "title": "ouma",
+      "path": "/images/brands/ouma.png",
+      "link": "#",
+      "width": 1200,
+      "height": 1200,
+      "description": "ouma"
+    }
+  },
+  {
+    "id": 5,
+    "title": "the-outlook",
+    "url": "/product/brand/the-outlook",
+    "media": {
+      "title": "the-outlook",
+      "path": "/images/brands/the-outlook.png",
+      "link": "#",
+      "width": 1200,
+      "height": 1200,
+      "description": "the-outlook"
+    }
+  },
+  {
+    "id": 6,
+    "title": "traveler",
+    "url": "/product/brand/traveler",
+    "media": {
+      "title": "traveler",
+      "path": "/images/brands/traveler.png",
+      "link": "#",
+      "width": 1200,
+      "height": 1200,
+      "description": "traveler"
+    }
+  },
+  {
+    "id": 7,
+    "title": "wiley",
+    "url": "/product/brand/wiley",
+    "media": {
+      "title": "wiley",
+      "path": "/images/brands/wiley.png",
+      "link": "#",
+      "width": 1200,
+      "height": 1200,
+      "description": "wiley"
+    }
+  }
+]

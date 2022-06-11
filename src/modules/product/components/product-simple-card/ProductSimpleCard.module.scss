@@ -1,0 +1,33 @@
+@use "@styles/abstract" as *;
+.root {
+  height: 350px;
+  width: min(250px, 90vw);
+  max-width: 100%;
+  position: relative;
+  cursor: pointer;
+
+  &__addButton {
+    position: absolute;
+    inset: $gutter-md auto auto $gutter-md;
+    z-index: 2;
+    background-color: rgba($secondary-gray-dark, 0.7);
+    @include transition-simple;
+
+    &:hover {
+      background-color: rgba($primary-light, 0.3);
+    }
+  }
+
+  &__stack {
+    &__img {
+      height: 240px;
+      width: 100%;
+      overflow: hidden;
+    }
+    &__info {
+      height: 40%;
+      padding-top: $gutter-md;
+      padding-inline: $gutter-md;
+    }
+  }
+}

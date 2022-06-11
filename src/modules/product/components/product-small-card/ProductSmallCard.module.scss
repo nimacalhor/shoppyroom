@@ -1,0 +1,12 @@
+@use "@styles/abstract" as *;
+.root {
+  padding:$gutter-lg;
+  &__img {
+    height: 90px;
+    overflow: hidden;
+    position: relative;
+    img {
+        border-radius: $border-radius-md;
+    }
+  }
+}

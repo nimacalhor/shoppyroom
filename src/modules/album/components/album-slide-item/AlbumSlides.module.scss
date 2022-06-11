@@ -1,0 +1,19 @@
+@use "@styles/abstract" as *;
+.root {
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+  margin-inline: auto;
+
+  &__txtbox {
+    display: flex;
+    flex-direction: column;
+    gap: $gutter-xl;
+    text-align: start;
+
+    &__link {
+      display: inline;
+      width: fit-content;
+    }
+  }
+}

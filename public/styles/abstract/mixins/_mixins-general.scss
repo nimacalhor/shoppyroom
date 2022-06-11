@@ -1,0 +1,46 @@
+@use "../variables/breakpoints" as *;
+@mixin mq-down($screen) {
+  @media (max-width: $screen) {
+    @content;
+  }
+}
+@mixin mq-up($screen) {
+  @media (min-width: $screen) {
+    @content;
+  }
+}
+
+@mixin mq-xs {
+  @media (max-width: $screen-xs-end) {
+    @content;
+  }
+}
+@mixin mq-sm {
+  @media (min-width: $screen-sm) and (max-width: $screen-sm-end) {
+    @content;
+  }
+}
+@mixin mq-md {
+  @media (min-width: $screen-md) and (max-width: $screen-md-end) {
+    @content;
+  }
+}
+@mixin mq-lg {
+  @media (min-width: $screen-lg) and (max-width: $screen-lg-end) {
+    @content;
+  }
+}
+@mixin mq-xl {
+  @media (min-width: $screen-xl) {
+    @content;
+  }
+}
+
+@mixin transition-simple {
+  transition: all 300ms ease-in-out;
+}
+
+@mixin pseudo() {
+  content: "";
+  position: absolute;
+}

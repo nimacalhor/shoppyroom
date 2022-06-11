@@ -1,0 +1,16 @@
+@use "@styles/abstract" as *;
+
+.root {
+  display: flex;
+  justify-content: center;
+  gap: $gutter-md;
+  align-items: center;
+  background-color: $surface-clr-secondary;
+}
+
+@include mq-down($screen-md-end) {
+  .root {
+    padding-inline: min($gutter-md, 10vw);
+    justify-content: space-between;
+  }
+}

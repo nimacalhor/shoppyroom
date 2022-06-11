@@ -1,0 +1,36 @@
+@use "@styles/abstract" as *;
+.root {
+  width: min(180px, 80vw);
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+  @include transition-simple;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(2px);
+  }
+
+  &::after {
+    @include pseudo;
+    inset: 0 0 0 0;
+    width: 100%;
+    height: 100%;
+    background: $surface-contrast-clr;
+    background: linear-gradient(
+      0deg,
+      rgba($surface-contrast-clr, 1) 0%,
+      rgba(255, 255, 255, 0.053658963585434205) 35%
+    );
+  }
+
+  &__title {
+    position: absolute;
+    inset: auto 50% $gutter-md auto;
+    transform: translateX(50%);
+    color: $white-secondary;
+    z-index: 2;
+  }
+}

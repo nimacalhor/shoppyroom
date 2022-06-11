@@ -1,0 +1,23 @@
+@use "@styles/abstract" as *;
+.root {
+  width: 100%;
+  padding-inline: $padding-inline;
+  margin-bottom: $gutter-xl;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  &::after {
+    @include pseudo;
+    inset: auto $padding-inline 1.5% $padding-inline;
+    height: 1px;
+    background-color: $secondary-gray-light;
+  }
+
+  &__title {
+    border-bottom: 3px solid $primary;
+    z-index: 2;
+    padding-bottom: $gutter-md;
+  }
+}

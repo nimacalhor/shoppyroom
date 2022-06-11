@@ -1,0 +1,8 @@
+@use "@styles/abstract" as *;
+.root {
+  &__grid {
+    padding-inline: $padding-inline !important;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+}

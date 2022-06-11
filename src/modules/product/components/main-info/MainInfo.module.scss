@@ -1,0 +1,19 @@
+@use "@styles/abstract" as *;
+.root {
+  height: $detail-panel-h;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: $gutter-lg;
+  &__grid {
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__divider {
+    margin-block: $gutter-md;
+  }
+  &__button {
+    width: 100% !important;
+    display: block !important;
+  }
+}

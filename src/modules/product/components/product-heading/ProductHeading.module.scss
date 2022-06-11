@@ -1,0 +1,10 @@
+@use "@styles/abstract" as *;
+.root {
+  width: 100%;
+  padding-inline: $gutter-xl;
+  margin-bottom: $gutter-lg;
+
+  &__btnGroup {
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,18 @@
+@use "@styles/abstract" as *;
+.root {
+  height: $detail-panel-h;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__imgCnt {
+    position: relative;
+    width: 95%;
+    height: 90%;
+
+    img{
+      border-radius: $border-radius-sm;
+    }
+  }
+}

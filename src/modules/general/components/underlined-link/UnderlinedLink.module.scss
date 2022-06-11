@@ -1,0 +1,20 @@
+@use "@styles/abstract" as *;
+
+.root {
+  color: $txt-clr;
+  @include transition-simple;
+
+  &:hover {
+    color: $primary;
+  }
+
+  &__underlined {
+    border-bottom: solid 1px $txt-clr;
+    border-radius: 0;
+    padding-bottom: 0;
+
+    &:hover {
+      border-bottom: solid 1px $primary;
+    }
+  }
+}

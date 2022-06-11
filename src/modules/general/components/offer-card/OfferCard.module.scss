@@ -1,0 +1,18 @@
+@use "@styles/abstract" as *;
+.root {
+  height: 300px;
+  position: relative;
+  padding: $gutter-lg auto;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+  @include transition-simple;
+  &:hover {
+    transform: translateY(2px);
+  }
+
+  &__txt {
+    position: absolute;
+    inset: $gutter-xl $gutter-xl auto auto;
+  }
+}

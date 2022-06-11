@@ -1,0 +1,19 @@
+@use "@styles/abstract" as *;
+
+.root {
+  display: flex;
+  align-items: center;
+  gap: $gutter-xl;
+  justify-content: flex-end;
+
+  &__button {
+    border: solid 1px $secondary-gray-light !important;
+    color: $txt-clr-secondary;
+    @include transition-simple;
+
+    &:hover {
+      border: solid 1px $secondary-gray-dark !important;
+      color: $txt-clr;
+    }
+  }
+}

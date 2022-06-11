@@ -1,0 +1,7 @@
+@use "../abstract" as *;
+.MuiBadge-badge {
+  background-color: $primary;
+  color: $secondary-light-x;
+  height: 18px;
+  width: 18px;
+}

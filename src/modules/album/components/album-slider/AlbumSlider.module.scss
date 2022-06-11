@@ -1,0 +1,12 @@
+@use "@styles/abstract" as *;
+
+.root {
+  height: 100%;
+  padding: $gutter-sm;
+  background: $surface-clr-secondary;
+  background: linear-gradient(
+    45deg,
+    $surface-clr-secondary 0%,
+    darken($surface-clr, 10%) 80%
+  );
+}

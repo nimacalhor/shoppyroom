@@ -1,0 +1,20 @@
+@use "@styles/abstract" as *;
+.root {
+
+  &__input {
+    height: 48px;
+    border: 0;
+    background-color: $primary-gray;
+    margin-top: $gutter-md;
+    border-radius: $border-radius-md;
+    &__icon {
+      margin-inline: $gutter-sm;
+      border-radius: $border-radius-xs;
+      @include transition-simple;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+}

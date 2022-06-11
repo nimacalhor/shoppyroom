@@ -1,0 +1,9 @@
+@use "@styles/abstract" as *;
+.root {
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+  background-color: $txt-clr;
+  color: $white;
+  z-index: 4;
+}

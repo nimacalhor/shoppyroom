@@ -1,0 +1,9 @@
+@use "@styles/abstract" as *;
+.root {
+  display: grid;
+  place-content: center;
+  background-color: $primary-gray;
+  padding-block: $gutter-xl;
+  margin-top: $gutter-xl * 3;
+  border-top: 3px solid $secondary-gray;
+}

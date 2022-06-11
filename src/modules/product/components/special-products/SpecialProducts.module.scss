@@ -1,0 +1,6 @@
+@use '@styles/abstract' as * ;
+.root{
+    padding: $gutter;
+    padding-top: $gutter-lg;
+    margin-top: $gutter-lg;
+}

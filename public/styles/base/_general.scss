@@ -1,0 +1,59 @@
+@use "../abstract" as *;
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: lighten($surface-clr, 3%);
+}
+
+* {
+  &:focus {
+    outline: 0;
+  }
+}
+
+a {
+  color: darken($txt-clr, 100%);
+  text-decoration: none;
+  @include transition-simple;
+
+  &:hover {
+    color: $primary-dark;
+  }
+}
+
+// TEMPORARY swiper
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-button {
+  &-next::after,
+  &-prev::after {
+    font-size: 2rem !important;
+    color: $primary;
+  }
+}

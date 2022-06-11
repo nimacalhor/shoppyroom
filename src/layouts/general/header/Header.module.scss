@@ -1,0 +1,14 @@
+@use "@styles/abstract" as *;
+.root {
+  background-color: $surface-clr-secondary;
+  min-height: 96px;
+  // display: flex;
+  // justify-content: center;
+  padding: $gutter-lg min($gutter-md, 5vw);
+}
+
+@include mq-md {
+  .root {
+    padding-bottom: 0;
+  }
+}

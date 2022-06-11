@@ -1,0 +1,45 @@
+// $surface-contrast-clr-secondary
+@use "@styles/abstract" as *;
+.root {
+  background: $primary-gray-dark;
+  background: linear-gradient(
+    180deg,
+    rgba($primary-gray-dark, 0.7) 0%,
+    rgba(255, 255, 255, 0.053658963585434205) 100%
+  );
+  margin-top: $gutter-xl * 2;
+
+  &__stack {
+    padding: $gutter-xl 0;
+    margin-bottom: $gutter-xl;
+    width: min(720px, 90vw);
+    text-align: center;
+  }
+
+  &__grid {
+    width: 80%;
+    margin-inline: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &__item {
+      cursor: pointer;
+      img {
+        filter: grayscale(80%);
+        @include transition-simple;
+      }
+
+      &:hover img {
+        filter: grayscale(0%);
+      }
+    }
+  }
+}
+
+@include mq-down($screen-sm-end) {
+  .root {
+    &__grid {
+      width: 95%;
+    }
+  }
+}

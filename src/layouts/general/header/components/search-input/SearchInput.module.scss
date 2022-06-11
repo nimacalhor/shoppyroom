@@ -1,0 +1,31 @@
+@use "@styles/abstract" as *;
+
+.root {
+  height: 48px;
+  border: 0;
+  background-color: $primary-gray;
+  border-radius: $border-radius-md;
+
+  &__button {
+    position: relative;
+
+    &::after {
+      @include pseudo;
+      width: 0.5px;
+      background-color: $primary-gray-dark;
+      inset: 15% ($gutter-xs + 3) 15% auto;
+    }
+  }
+
+  &__icon {
+    margin-inline: $gutter-sm;
+    border-radius: $border-radius-xs;
+    color: $primary;
+    @include transition-simple;
+
+    &:hover {
+      background-color: transparent;
+      color: $primary-light;
+    }
+  }
+}

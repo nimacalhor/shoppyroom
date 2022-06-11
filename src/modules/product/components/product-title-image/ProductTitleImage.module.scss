@@ -1,0 +1,15 @@
+@use "@styles/abstract" as *;
+
+.root {
+  height: 250px;
+  display: grid;
+  place-content: center;
+  &__container {
+    height: 80%;
+    width: 80%;
+
+    img {
+      filter: grayscale(90%);
+    }
+  }
+}

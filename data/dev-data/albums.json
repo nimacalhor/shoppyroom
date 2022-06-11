@@ -1,0 +1,47 @@
+[
+  {
+    "id": 0,
+    "title": "fixture that covers the lightbulb",
+    "link": "/product/category/lampshade",
+    "description": "Luxury lampshades with adjustable light",
+    "media": {
+      "title": "lampshade album",
+      "path": "/images/albums/lampshade.png",
+      "link": "",
+      "width": 200,
+      "height": 200,
+      "description": ""
+    },
+    "link_title": ""
+  },
+  {
+    "id": 1,
+    "title": "modern chandeliers",
+    "link": "/product/category/chandelier",
+    "description": "Browse our selecting of modern chandelier",
+    "media": {
+      "title": "chandelier album",
+      "path": "/images/albums/chandelier.png",
+      "link": "",
+      "width": 266,
+      "height": 399,
+      "description": ""
+    },
+    "link_title": ""
+  },
+  {
+    "id": 2,
+    "title": "modern prints in every styles",
+    "link": "/product/category/poster",
+    "description": "Shop premium posters and prints with photography",
+    "media": {
+      "title": "poster album",
+      "path": "/images/albums/poster.png",
+      "link": "",
+      "width": 300,
+      "height": 400,
+      "description": ""
+    },
+    "link_title": ""
+  }
+]
