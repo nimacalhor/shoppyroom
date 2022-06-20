@@ -24,17 +24,17 @@ export const addItem = function (
   state: CartState,
   payload: AddCartAction["payload"]
 ): CartState {
-  const { item } = payload;
+  const { product } = payload;
   const otherItems = state.items.filter(
-    (item) => item.product.id !== item.product.id
+    (item) => item.product.id !== product.id
   );
-  const itemExists = state.items.filter(
-    (item) => item.product.id === item.product.id
+  const [prevItem] = state.items.filter(
+    (item) => item.product.id === product.id
   );
   const result = [...otherItems];
   const newItem: CartProduct = {
-    product: item.product,
-    quantity: itemExists ? item.quantity + 1 : item.quantity || 1,
+    product,
+    quantity: prevItem ? Number(prevItem.quantity) + 1 : 1,
   };
   result.push(newItem);
   saveCart(result);
@@ -128,7 +128,7 @@ export const reduceItemQuantity = function (
   const otherItems = state.items.filter((item) => item.product.id !== id);
   const [item] = state.items.filter((item) => item.product.id === id);
   const result = [...otherItems];
-  if (item && item.quantity > 1)
+  if (item && item.quantity && item.quantity > 1)
     result.push({
       product: item.product,
       quantity: item.quantity - 1,

@@ -8,16 +8,14 @@ import Button from "@mui/material/Button";
 
 const Actions = ({
   deviceType,
-  cartInventory,
   login,
 }: {
   deviceType: DeviceType;
-  cartInventory: number;
   login: boolean;
 }) => {
   return (
     <div className={stl.root}>
-      <CartNotif {...{ cartInventory }} />
+      <CartNotif/>
       <Divider orientation="vertical" variant="middle" flexItem />
       {deviceType.isMobileOrTablet ? (
         <IconButton>

@@ -1,3 +1,4 @@
+import { Product } from "@modules/product/libraries/product-types";
 import { CartActions } from "../constants/cart-action-types";
 import { CartProduct } from "../../libraries/cart-types";
 import {
@@ -12,9 +13,9 @@ import {
   ChangeItemQuantity,
 } from "../../libraries/cart-types";
 
-export const addCartItem = (item: CartProduct): AddCartAction => ({
+export const addCartItem = (product: Product): AddCartAction => ({
   type: CartActions.ADD_ITEM,
-  payload: { item },
+  payload: { product },
 });
 export const removeCartItem = (id: string | number): RemoveCartAction => ({
   type: CartActions.REMOVE_ITEM,

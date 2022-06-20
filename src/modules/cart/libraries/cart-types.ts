@@ -15,7 +15,7 @@ export interface CartProduct {
 export interface AddCartAction {
   type: CartActions.ADD_ITEM;
   payload: {
-    item: CartProduct;
+    product: Product;
   };
 }
 export interface RemoveCartAction {
