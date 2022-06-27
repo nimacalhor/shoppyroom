@@ -8,7 +8,7 @@ import {
 
 const filePath = path.join(process.cwd(), "data/dev-data/albums.json");
 
-export const getAlbumList = function (
+export const getAlbumList = async function (
   criteria: AlbumCriteria
 ): Promise<AlbumListEntity> {
   const albumList: Album[] = JSON.parse(

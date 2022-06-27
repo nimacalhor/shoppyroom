@@ -1,28 +1,57 @@
 import { fetchCategoryList } from "@modules/category/store/api/category-api";
 import { Category } from "@modules/category/libraries/category-types";
 import SiteLayout from "@layouts/templates/site-layout";
+import type { ReactElement, ReactNode } from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import { NextPage, NextComponentType } from "next";
+import { SessionProvider } from "next-auth/react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { CssBaseline } from "@mui/material";
 import { wrapper } from "@root/store";
+import { Session } from "next-auth";
 import theme from "@root/theme";
 import "@styles/main.scss";
 
+export type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
 const WrappedApp: NextPage<any> = function ({
   Component,
-  pageProps,
+  pageProps: { session, ...pageProps },
   categoryList,
 }: {
-  Component: NextComponentType;
+  Component: NextPageWithLayout;
   pageProps: any;
   categoryList: Category[];
 }) {
+  const getLayout = Component.getLayout || ((page) => page);
+  // if (Component.getLayout)
+  //   return Component.getLayout(<Component {...pageProps} />);
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <SiteLayout categoryList={categoryList}>
-        <Component {...pageProps} />
-      </SiteLayout>
+      <SessionProvider session={session}>
+        <CssBaseline />
+        {Component.getLayout ? (
+          Component.getLayout(<Component {...pageProps} />)
+        ) : (
+          <SiteLayout categoryList={categoryList}>
+            {getLayout(<Component {...pageProps} />)}
+          </SiteLayout>
+        )}
+        <ToastContainer
+          position="bottom-right"
+          autoClose={2000}
+          hideProgressBar
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      </SessionProvider>
     </ThemeProvider>
   );
 };

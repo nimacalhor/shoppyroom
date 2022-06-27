@@ -3,6 +3,7 @@ import IconButton from "@mui/material/IconButton";
 import { RootState } from "@modules/rootReducer";
 import { useSelector } from "react-redux";
 import Badge from "@mui/material/Badge";
+import Link from "next/link";
 
 const CartNotif = () => {
   const { items } = useSelector((state: RootState) => state.cart);
@@ -11,11 +12,13 @@ const CartNotif = () => {
     0
   );
   return (
-    <IconButton>
-      <Badge badgeContent={cartCapacity ?? 0}>
-        <ShoppingBagIcon />
-      </Badge>
-    </IconButton>
+    <Link href="/cart" passHref>
+      <IconButton>
+        <Badge badgeContent={cartCapacity ?? 0}>
+          <ShoppingBagIcon />
+        </Badge>
+      </IconButton>
+    </Link>
   );
 };
 

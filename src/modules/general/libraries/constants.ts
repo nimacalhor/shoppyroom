@@ -1,3 +1,4 @@
+import { ToastOptions } from "react-toastify";
 export const URLS = {
   PRODUCT: {
     self: "/product",
@@ -13,4 +14,13 @@ export const URLS = {
     POSTER: "/product/category/poster",
     POT: "/product/category/pot",
   },
+};
+export const TOAST_OPTIONS: ToastOptions = {
+  position: "bottom-right",
+  autoClose: 2000,
+  hideProgressBar: true,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
 };

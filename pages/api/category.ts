@@ -7,13 +7,12 @@ import {
 } from "@modules/category/libraries/category-types";
 
 const filePath = path.join(process.cwd(), "data/dev-data/categories.json");
+const stringCategory = fs.readFileSync(filePath, { encoding: "utf8" });
 
-export const getCategoryList = function (
+export const getCategoryList = async function (
   criteria: CategoryCriteria
 ): Promise<CategoryListEntity> {
-  const categoryList: Category[] = JSON.parse(
-    fs.readFileSync(filePath, { encoding: "utf8" })
-  );
+  const categoryList: Category[] = JSON.parse(stringCategory);
   const response: CategoryListEntity = {
     status_code: 200,
     totalResults: categoryList.length,

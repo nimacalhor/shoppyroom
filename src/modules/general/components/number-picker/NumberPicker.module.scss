@@ -1,0 +1,26 @@
+@use "@styles/abstract" as *;
+$br: $border-radius-md;
+.root {
+  &__button {
+    border-radius: 0;
+    background-color: $primary-gray;
+
+    &__add {
+      border-radius: 0 $br $br 0;
+    }
+    &__reduce {
+      border-radius: $br 0 0 $br;
+    }
+  }
+
+  &__input {
+    width: fit-content;
+    padding: 0 $gutter * 2;
+    &__txtfield {
+      input {
+        width: 20px;
+        text-align: center;
+      }
+    }
+  }
+}

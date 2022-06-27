@@ -1,3 +1,4 @@
+import { nimLog } from "@modules/general/libraries/helpers";
 import { CartState } from "./../../libraries/cart-types";
 import {
   AddCartAction,
@@ -15,6 +16,20 @@ export const initState: CartState = {
   pending: false,
   items: [],
 };
+
+function sortCart(array: CartProduct[]): CartProduct[] {
+  return array.sort((a: CartProduct, b: CartProduct) => {
+    const x = a.product.title;
+    const y = b.product.title;
+    let result = 0;
+    if (x < y) {
+      result = -1;
+    } else if (x > y) {
+      result = 1;
+    }
+    return result;
+  });
+}
 
 function saveCart(cart: CartProduct[]) {
   localStorage.setItem("cart", JSON.stringify(cart));
@@ -40,7 +55,7 @@ export const addItem = function (
   saveCart(result);
   return {
     ...state,
-    items: result,
+    items: sortCart(result),
   };
 };
 
@@ -50,12 +65,12 @@ export const removeItem = function (
 ): CartState {
   const { id } = payload;
   const newItems = [...state.items].filter(
-    ({ product }) => product.id !== Number(id)
+    ({ product }) => String(product.id) !== String(id)
   );
   saveCart(newItems);
   return {
     ...state,
-    items: newItems,
+    items: sortCart(newItems),
   };
 };
 
@@ -74,7 +89,7 @@ export const loadCart = function (state: CartState): CartState {
   if (cart && cart !== "") items = JSON.parse(cart);
   return {
     ...state,
-    items,
+    items: sortCart(items),
   };
 };
 
@@ -105,8 +120,13 @@ export const addItemQuantity = function (
   payload: AddItemQuantity["payload"]
 ): CartState {
   const { id } = payload;
-  const otherItems = state.items.filter((item) => item.product.id !== id);
-  const [item] = state.items.filter((item) => item.product.id === id);
+  const otherItems = state.items.filter(
+    (item) => String(item.product.id) !== String(id)
+  );
+  const [item] = state.items.filter(
+    (item) => String(item.product.id) === String(id)
+  );
+  nimLog("founded Item", item)();
   const result = [...otherItems];
   if (item)
     result.push({
@@ -116,7 +136,7 @@ export const addItemQuantity = function (
   saveCart(result);
   return {
     ...state,
-    items: result,
+    items: sortCart(result),
   };
 };
 
@@ -125,8 +145,12 @@ export const reduceItemQuantity = function (
   payload: ReduceItemQuantity["payload"]
 ): CartState {
   const { id } = payload;
-  const otherItems = state.items.filter((item) => item.product.id !== id);
-  const [item] = state.items.filter((item) => item.product.id === id);
+  const otherItems = state.items.filter(
+    (item) => String(item.product.id) !== String(id)
+  );
+  const [item] = state.items.filter(
+    (item) => String(item.product.id) === String(id)
+  );
   const result = [...otherItems];
   if (item && item.quantity && item.quantity > 1)
     result.push({
@@ -136,7 +160,7 @@ export const reduceItemQuantity = function (
   saveCart(result);
   return {
     ...state,
-    items: result,
+    items: sortCart(result),
   };
 };
 
@@ -145,8 +169,12 @@ export const changeItemQuantity = function (
   payload: ChangeItemQuantity["payload"]
 ): CartState {
   const { id, amount } = payload;
-  const otherItems = state.items.filter((item) => item.product.id !== id);
-  const [item] = state.items.filter((item) => item.product.id === id);
+  const otherItems = state.items.filter(
+    (item) => String(item.product.id) !== String(id)
+  );
+  const [item] = state.items.filter(
+    (item) => String(item.product.id) === String(id)
+  );
   const result = [...otherItems];
   if (item)
     result.push({
@@ -156,6 +184,6 @@ export const changeItemQuantity = function (
   saveCart(result);
   return {
     ...state,
-    items: result,
+    items: sortCart(result),
   };
 };

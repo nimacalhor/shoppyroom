@@ -26,7 +26,7 @@ const hasMoreItem = (arr: any[], limit: number, paging?: number): boolean => {
   else return sliceByPaging(arr, limit, 1).length === arr.length;
 };
 
-export const getInternalProductList = function (
+export const getInternalProductList = async function (
   criteria: ProductCriteria
 ): Promise<ProductListEntity> {
   const { brandIds, categoryIds, limit, searchKeywords, sorting, paging } =

@@ -1,5 +1,5 @@
 // we need to handle multiple routes because NextAuth expose it
-import { getUser, verifyPassword } from "@modules/member/libraries/helper";
+import { getUser, verifyPassword } from "@modules/member/store/api/helper";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { User } from "@modules/member/libraries/member-types";
 import NextAuth from "next-auth";

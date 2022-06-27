@@ -1,0 +1,7 @@
+@use "@styles/abstract" as *;
+.root {
+  padding: $gutter * 2 $gutter;
+  &__active {
+    background-color: $secondary-light;
+  }
+}
