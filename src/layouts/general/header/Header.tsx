@@ -16,7 +16,7 @@ const SearchInput = dynamic(() => import("./components/search-input")),
     () => import("@modules/general/components/underlined-link")
   );
 
-const Header = ({ categoryList }: { categoryList: Category[] }) => {
+const Header = ({ categoryList }: { categoryList: Category[] | null }) => {
   const deviceType = useDeviceType();
   return (
     <>
@@ -28,22 +28,14 @@ const Header = ({ categoryList }: { categoryList: Category[] }) => {
             </Grid>
             <Grid item xs={6} md={6}>
               {deviceType.isMobileOrTablet ? (
-                <HeaderActions
-                  deviceType={deviceType}
-                  cartInventory={8}
-                  login={false}
-                />
+                <HeaderActions deviceType={deviceType} login={false} />
               ) : (
                 <SearchInput />
               )}
             </Grid>
             <Grid item xs={12} md={3}>
               {deviceType.isScreen ? (
-                <HeaderActions
-                  deviceType={deviceType}
-                  cartInventory={8}
-                  login={false}
-                />
+                <HeaderActions deviceType={deviceType} login={false} />
               ) : (
                 <SearchInput />
               )}

@@ -1,8 +1,8 @@
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
-import { fetchCategoryList } from "@modules/category/store/api/category-api";
 import ProductFilter from "@modules/page-sections/components/product-filter";
 import { kebabCase, nimLog } from "@modules/general/libraries/helpers";
 import { Category } from "@modules/category/libraries/category-types";
+import { getInternalCategoryList } from "@main/pages/api/categories";
 import { fetchBrandList } from "@modules/brand/store/api/brands-api";
 import { getInternalProductList } from "@main/pages/api/products";
 import { Brand } from "@modules/brand/libraries/brand-types";
@@ -28,7 +28,7 @@ const CategoryProductPage = ({
   criteria: ProductCriteria | null;
 }) => {
   const productPaging = productListEntity ? productListEntity.paging : null;
-  nimLog("category.id", category?.id)()
+  nimLog("category.id", category?.id)();
   return (
     <>
       <ProductFilter
@@ -70,11 +70,11 @@ export const getStaticProps: GetStaticProps = async function (
     const brandListRes = await fetchBrandList();
     if (brandListRes.data.length > 0) brandList = brandListRes.data;
 
-    const categoryListRes = await fetchCategoryList({});
-    if (categoryListRes.data.length > 0) {
-      categoryList = categoryListRes.data;
+    const categoryListRes = await getInternalCategoryList();
+    if (categoryListRes.category_list.length > 0) {
+      categoryList = categoryListRes.category_list;
       category =
-        categoryListRes.data.find(
+        categoryListRes.category_list.find(
           (ctg) => kebabCase(ctg.title) === categoryName
         ) || null;
     }
@@ -115,8 +115,8 @@ const getPaths = (categories: Category[]) =>
 export const getStaticPaths: GetStaticPaths = async function () {
   let categoryList: Category[] | null = null;
   try {
-    const res = await fetchCategoryList({});
-    if (res.data.length > 0) categoryList = res.data;
+    const res = await getInternalCategoryList();
+    if (res.category_list.length > 0) categoryList = res.category_list;
   } catch (err) {
     nimLog("error in CategoryProductPage ~ getStaticPath", err)("error");
   }

@@ -31,7 +31,6 @@ export const getInternalProductList = async function (
 ): Promise<ProductListEntity> {
   const { brandIds, categoryIds, limit, searchKeywords, sorting, paging } =
     criteria;
-  nimLog("criteria in api", criteria)()
   let productList: Product[] = data;
 
   // brandIds ______________________________

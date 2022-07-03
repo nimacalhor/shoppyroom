@@ -1,6 +1,7 @@
 import { generateProductLink } from "@modules/product/libraries/helper";
 import { addCartItem } from "@modules/cart/store/actions/cart-actions";
 import { Product } from "@modules/product/libraries/product-types";
+import { alertItemAdded } from "@modules/general/libraries/alerts";
 import { CartProduct } from "@modules/cart/libraries/cart-types";
 import { trimText } from "@modules/general/libraries/helpers";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
@@ -16,7 +17,10 @@ import Link from "next/link";
 const ProductSimpleCard = ({ product }: { product: Product }) => {
   const { media, title, category, price } = product;
   const dispatch = useDispatch();
-  const addToCartHandler = () => dispatch(addCartItem(product));
+  const addToCartHandler = () => {
+    dispatch(addCartItem(product));
+    alertItemAdded();
+  };
   return (
     <Paper component="div" className={stl.root}>
       <IconButton

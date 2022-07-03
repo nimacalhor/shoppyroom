@@ -22,13 +22,7 @@ const CartPage = () => {
     dispatch(loadCart());
   }, []);
 
-  return <CartOverview cartItems={cartItems} />;
-};
-
-export const getServerSideProps: GetServerSideProps = async function () {
-  return {
-    props: {},
-  };
+  return <CartOverview pending={pending} cartItems={cartItems} />;
 };
 
 export default CartPage;

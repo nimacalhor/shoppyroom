@@ -1,4 +1,3 @@
-import { fetchCategoryList } from "@modules/category/store/api/category-api";
 import { Category } from "@modules/category/libraries/category-types";
 import { fetchBrandList } from "@modules/brand/store/api/brands-api";
 import { fetchAlbumList } from "@modules/album/store/api/album-api";
@@ -8,6 +7,7 @@ import { Album } from "@modules/album/libraries/album-types";
 import { Brand } from "@modules/brand/libraries/brand-types";
 import { URLS } from "@modules/general/libraries/constants";
 import { nimLog } from "@modules/general/libraries/helpers";
+import { getInternalCategoryList } from "./api/categories";
 import { getInternalProductList } from "./api/products";
 import { useTheme } from "@mui/material";
 import dynamic from "next/dynamic";
@@ -85,8 +85,9 @@ export const getStaticProps = async function () {
     const albumListRes = await fetchAlbumList();
     if (albumListRes.totalResults > 0) albumList = albumListRes.data;
 
-    const categoryListRes = await fetchCategoryList({});
-    if (categoryListRes.totalResults > 0) categoryList = categoryListRes.data;
+    const categoryListRes = await getInternalCategoryList();
+    if (categoryListRes.totalResults > 0)
+      categoryList = categoryListRes.category_list;
 
     const brandListRes = await fetchBrandList();
     if (brandListRes.totalResults > 0) brandList = brandListRes.data;

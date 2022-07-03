@@ -1,7 +1,7 @@
 import ProductFilter from "@modules/page-sections/components/product-filter";
-import { fetchCategoryList } from "@modules/category/store/api/category-api";
 import { Category } from "@modules/category/libraries/category-types";
 import { fetchBrandList } from "@modules/brand/store/api/brands-api";
+import { getInternalCategoryList } from "../../api/categories";
 import { Brand } from "@modules/brand/libraries/brand-types";
 import { nimLog } from "@modules/general/libraries/helpers";
 import { getInternalProductList } from "../../api/products";
@@ -57,8 +57,9 @@ export const getStaticProps: GetStaticProps = async function () {
     const brandsRes = await fetchBrandList();
     if (brandsRes.data.length > 0) brandList = brandsRes.data;
 
-    const categoryRes = await fetchCategoryList({});
-    if (categoryRes.data.length > 0) categoryList = categoryRes.data;
+    const categoryRes = await getInternalCategoryList();
+    if (categoryRes.category_list.length > 0)
+      categoryList = categoryRes.category_list;
 
     const productsRes = await getInternalProductList(criteria);
     if (productsRes.data.length > 0) {

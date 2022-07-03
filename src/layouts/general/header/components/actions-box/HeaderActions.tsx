@@ -16,7 +16,6 @@ const Actions = ({
   login: boolean;
 }) => {
   const { data: session, status } = useSession();
-  console.log(session);
   return (
     <div className={stl.root}>
       <CartNotif />

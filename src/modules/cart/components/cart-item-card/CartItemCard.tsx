@@ -18,16 +18,33 @@ import {
   changeCartItemQuantity,
   removeCartItem,
 } from "@modules/cart/store/actions/cart-actions";
+import {
+  alertItemDeleted,
+  alertItemQuantityChanged,
+  alertItemQuantityIncrease,
+  alertItemQuantityDecrease,
+} from "@modules/general/libraries/alerts";
 
 const CartItemCard = ({ cartProduct }: { cartProduct: CartProduct }) => {
   const { product, quantity } = cartProduct;
   const id = Number(product.id);
   const dispatch = useDispatch();
-  const addHandler = () => dispatch(addCartItemQuantity(id));
-  const reduceHandler = () => dispatch(reduceCartItemQuantity(id));
-  const changeHandler = (val: number) =>
+  const addHandler = () => {
+    dispatch(addCartItemQuantity(id));
+    alertItemQuantityIncrease();
+  };
+  const reduceHandler = () => {
+    dispatch(reduceCartItemQuantity(id));
+    alertItemQuantityDecrease();
+  };
+  const changeHandler = (val: number) => {
     dispatch(changeCartItemQuantity(id, val));
-  const deleteHandler = () => dispatch(removeCartItem(id));
+    alertItemQuantityChanged();
+  };
+  const deleteHandler = () => {
+    dispatch(removeCartItem(id));
+    alertItemDeleted();
+  };
   return (
     <Paper className={stl.root}>
       <Grid container spacing={3}>

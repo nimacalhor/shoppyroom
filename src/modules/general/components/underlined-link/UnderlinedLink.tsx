@@ -14,7 +14,6 @@ const UnderlinedLink = ({
   const className = `${stl.root} ${underlined ? stl.root__underlined : ""}`;
   return (
     <Link {...{ href }}>
-      {/* <Button className={className} variant="text"> */}
       <Button className={className} color="primary" variant="text">
         {children}
       </Button>

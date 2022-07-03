@@ -1,9 +1,9 @@
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
-import { fetchCategoryList } from "@modules/category/store/api/category-api";
 import ProductFilter from "@modules/page-sections/components/product-filter";
 import { kebabCase, nimLog } from "@modules/general/libraries/helpers";
 import { Category } from "@modules/category/libraries/category-types";
 import { fetchBrandList } from "@modules/brand/store/api/brands-api";
+import { getInternalCategoryList } from "@main/pages/api/categories";
 import { getInternalProductList } from "@main/pages/api/products";
 import { Brand } from "@modules/brand/libraries/brand-types";
 import {
@@ -73,8 +73,9 @@ export const getStaticProps: GetStaticProps = async function (
         null;
       brandList = brandListRes.data;
     }
-    const categoryListRes = await fetchCategoryList({});
-    if (categoryListRes.data.length > 0) categoryList = categoryListRes.data;
+    const categoryListRes = await getInternalCategoryList();
+    if (categoryListRes.category_list.length > 0)
+      categoryList = categoryListRes.category_list;
 
     criteria = {
       limit: 20,

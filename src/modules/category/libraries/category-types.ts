@@ -1,7 +1,7 @@
+import { CategoryActionTypes } from "../store/constants/category-action-types";
 import { Media } from "@modules/general/libraries/general-types";
 
 export interface Category {
-  // TEMPORARY category
   id: number;
   priority: number;
   title: string;
@@ -11,14 +11,34 @@ export interface Category {
 }
 
 export interface CategoryCriteria {
-  // TEMPORARY category criteria
   limit?: number;
   keywords?: string[];
 }
 
 export interface CategoryListEntity {
-  // TEMPORARY category entity
   status_code: number;
   totalResults: number;
-  data: Category[];
+  category_list: Category[];
+}
+
+export interface GetCategoryListAction {
+  type: CategoryActionTypes.GET_CATEGORY_LIST;
+}
+export interface PutCategoryListAction {
+  type: CategoryActionTypes.PUT_CATEGORY_LIST;
+  payload: {
+    items: Category[];
+  };
+}
+export interface PendingCategoryListAction {
+  type: CategoryActionTypes.PENDING_CATEGORY_LIST;
+  payload: {
+    pending: boolean;
+  };
+}
+export interface ErrorCategoryListAction {
+  type: CategoryActionTypes.ERROR_CATEGORY_LIST;
+  payload: {
+    error: string | null;
+  };
 }

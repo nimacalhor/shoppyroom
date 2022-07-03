@@ -1,5 +1,6 @@
 type LogTypes = "log" | "info" | "error" | "warn" | "dir";
 const availableLogTypes = ["log", "info", "error", "warn", "dir"];
+
 export const nimLog =
   (title: string, ...args: any[]) =>
   (type?: LogTypes) => {
