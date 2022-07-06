@@ -1,3 +1,4 @@
+import { SxProps } from "@mui/material";
 import Grid from "@mui/material/Grid";
 
 const TripleGrid = ({
@@ -5,14 +6,16 @@ const TripleGrid = ({
   elements,
   className,
   breakpoint,
+  sx,
 }: {
   spacing?: number;
   elements: JSX.Element[];
   className?: string;
   breakpoint?: "sm" | "md";
+  sx?: SxProps;
 }) => {
   return (
-    <Grid className={className || ""} container spacing={spacing || 2}>
+    <Grid sx={sx} className={className || ""} container spacing={spacing || 2}>
       {elements.map((El, i) => (
         <Grid xs={12} {...{ [breakpoint || "md"]: 4 }} item key={i}>
           {El}

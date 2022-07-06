@@ -10,19 +10,27 @@ import Grid from "@mui/material/Grid";
 const CartOverview = ({
   cartItems,
   pending,
+  applyGrid,
 }: {
   cartItems: CartProduct[];
   pending: boolean;
+  applyGrid?: boolean;
 }) => {
   const dispatch = useDispatch();
   const totalPrice = cartItems.reduce(
     (acc, cur) => acc + Number(cur.product.price) * cur.quantity,
     0
   );
+  const gridCondition = applyGrid === false ? false : true;
   return (
-    <div className={stl.root}>
+    <div className={gridCondition ? stl.root : ""}>
       <Grid container spacing={2}>
-        <Grid item xs={12} md={7} lg={8}>
+        <Grid
+          item
+          xs={12}
+          md={gridCondition ? 7 : undefined}
+          lg={gridCondition ? 8 : undefined}
+        >
           {cartItems &&
             !pending &&
             cartItems.map((item) => (
@@ -30,7 +38,12 @@ const CartOverview = ({
             ))}
           {pending && <CartSkeleton />}
         </Grid>
-        <Grid item xs={12} md={5} lg={4}>
+        <Grid
+          item
+          xs={12}
+          md={gridCondition ? 5 : undefined}
+          lg={gridCondition ? 4 : undefined}
+        >
           {!pending && (
             <CheckOutButton
               onCheckOut={() => dispatch(removeCartAllItems())}

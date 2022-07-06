@@ -1,4 +1,5 @@
 import Button, { ButtonProps } from "@mui/material/Button";
+import { useTheme, SxProps } from "@mui/material";
 
 function DashboardNavItem({
   active,
@@ -8,12 +9,17 @@ function DashboardNavItem({
   active: boolean;
   children: any;
 }) {
+  const theme = useTheme();
+  const activeStyle: SxProps = {
+    bgcolor: `${theme.palette.primary.light}`,
+  };
   return (
     <Button
+      sx={active ? activeStyle : null}
       fullWidth
       size="large"
       variant="text"
-      color="secondary"
+      color="primary"
       {...ButtonProps}
     >
       {children}

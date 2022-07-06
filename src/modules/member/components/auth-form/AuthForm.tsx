@@ -116,7 +116,7 @@ function SignUp() {
             type="submit"
             disabled={pending}
             variant="contained"
-            endIcon={<DoneIcon />}
+            endIcon={!pending && <DoneIcon />}
           >
             {pending ? <Progress /> : "submit"}
           </Button>

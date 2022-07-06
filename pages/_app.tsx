@@ -24,8 +24,8 @@ const WrappedApp: NextPage<any> = function ({
   const getLayout = Component.getLayout || ((page) => page);
 
   return (
-    <ThemeProvider theme={theme}>
-      <SessionProvider session={session}>
+    <SessionProvider session={session}>
+      <ThemeProvider theme={theme}>
         <CssBaseline />
         {Component.getLayout ? (
           Component.getLayout(<Component {...pageProps} />)
@@ -43,8 +43,8 @@ const WrappedApp: NextPage<any> = function ({
           draggable
           pauseOnHover
         />
-      </SessionProvider>
-    </ThemeProvider>
+      </ThemeProvider>
+    </SessionProvider>
   );
 };
 

@@ -2,12 +2,22 @@ import TripleGrid from "@modules/general/components/triple-grid";
 import OfferCard from "@modules/general/components/offer-card/";
 import { URLS } from "@modules/general/libraries/constants";
 import stl from "./Offerings.module.scss";
+import { SxProps } from "@mui/material";
 
-const Offerings = () => {
+const Offerings = ({
+  applyPadding,
+  gridSx,
+}: {
+  applyPadding?: boolean;
+  gridSx: SxProps;
+}) => {
+  const padding =
+    applyPadding === undefined || applyPadding === false ? false : true;
   return (
     <TripleGrid
+      sx={gridSx}
       breakpoint="sm"
-      className={stl.root}
+      className={padding ? stl.root : ""}
       elements={[
         <OfferCard
           href={URLS.PRODUCT.NEW_ARRIVALS}

@@ -21,18 +21,10 @@ export function trimText(input: string, length: number) {
 export const kebabCase = (str: string) =>
   str.replaceAll(/\s/g, "-").toLowerCase();
 
-export function log(...args: any[]) {
-  if (log.t) console.log(log.t + "______________________________");
-  args.forEach((r) => console.log(r));
-}
-log.t = "";
-log.err = function (...args: any[]) {
-  args.forEach((r) => console.error(r));
-};
-log.warn = function (...args: any[]) {
-  args.forEach((r) => console.warn(r));
-};
-log.title = function (title: string) {
-  log.t = title;
-  return log;
+export const vw = function (v: number) {
+  var w = Math.max(
+    document.documentElement.clientWidth,
+    window.innerWidth || 0
+  );
+  return (v * w) / 100;
 };
