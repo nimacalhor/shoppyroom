@@ -8,6 +8,10 @@ const nextConfig = {
 
     return config;
   },
+  env:{
+    NEXTAUTH_URL:"https//",
+    NEXTAUTH_SECRET:""
+  }
 }
 
 module.exports = nextConfig
