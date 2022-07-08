@@ -1,9 +1,9 @@
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { User } from "@modules/member/libraries/member-types";
+import { useSession, signOut } from "next-auth/react";
 import DashboardNavItem from "../dashboard-nav-item";
 import LogoutIcon from "@mui/icons-material/Logout";
 import HomeIcon from "@mui/icons-material/Home";
-import { useSession } from "next-auth/react";
 import Divider from "@mui/material/Divider";
 import { useRouter } from "next/router";
 import Paper from "@mui/material/Paper";
@@ -41,7 +41,13 @@ function DashboardNav() {
             cart
           </DashboardNavItem>
         </Link>
-        <DashboardNavItem endIcon={<LogoutIcon />} active={false}>
+        <DashboardNavItem
+          onClick={() => signOut({
+            callbackUrl:"http://localhost:3000/"
+          })}
+          endIcon={<LogoutIcon />}
+          active={false}
+        >
           log out
         </DashboardNavItem>
       </Stack>

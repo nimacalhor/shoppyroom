@@ -1,11 +1,11 @@
 @use "@styles/abstract" as *;
 
 .root {
-  color: $txt-clr;
+  color: $txt-clr !important;
   @include transition-simple;
 
   &:hover {
-    color: $primary;
+    color: $primary !important;
   }
 
   &__underlined {

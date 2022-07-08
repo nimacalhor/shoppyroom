@@ -8,7 +8,7 @@ export const toastSuccess = (txt: string) => toast.success(txt, TOAST_OPTIONS);
 
 export const redirectUser = function (
   router: NextRouter,
-  path: string = "/"
+  path: string = "/dashboard"
 ): Promise<boolean> {
   return new Promise((resolve) =>
     setTimeout(() => {

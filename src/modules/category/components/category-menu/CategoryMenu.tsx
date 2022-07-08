@@ -21,7 +21,7 @@ const CategoryMenu = ({
   const onCloseHandler = () => setDrawerOpen(false);
   const itemsToIterate = categoryList
     ? categoryList.sort(({ id: idA }, { id: idB }) => idB - idA)
-    : new Array(5).fill(0);
+    : new Array(7).fill(0);
   return (
     <div className={stl.root}>
       {deviceType.isScreen ? (

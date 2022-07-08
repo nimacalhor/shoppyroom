@@ -4,21 +4,26 @@ import ToggleButton from "@mui/material/ToggleButton";
 import PanelAccordion from "../panel-accordion";
 import stl from "./CategoryToggle.module.scss";
 import { useState } from "react";
+import { nimLog } from "@modules/general/libraries/helpers";
 
 const CategoryToggle = ({
   onChange,
   categoryList,
+  init = null,
 }: {
   onChange: (ctgArr: string[]) => void;
   categoryList: Category[];
+  init: string[] | null;
 }) => {
+  nimLog("init", init)();
   const [selectedCtg, setSelectedCtg] = useState<string[] | null>(null);
   const changeHandler = (_: any, newValue: string[]) => {
     setSelectedCtg(() => {
-      if (newValue) onChange(newValue);
+      if (newValue) onChange(newValue.map(String));
       return newValue;
     });
   };
+
   return (
     <PanelAccordion title="category">
       <ToggleButtonGroup
@@ -30,7 +35,10 @@ const CategoryToggle = ({
         onChange={changeHandler}
       >
         {categoryList.map((ctg) => (
-          <ToggleButton key={ctg.id} value={ctg.id}>
+          <ToggleButton
+            key={ctg.id}
+            value={ctg.id}
+          >
             {ctg.title}
           </ToggleButton>
         ))}

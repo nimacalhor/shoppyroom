@@ -9,10 +9,10 @@ const Offerings = ({
   gridSx,
 }: {
   applyPadding?: boolean;
-  gridSx: SxProps;
+  gridSx?: SxProps;
 }) => {
   const padding =
-    applyPadding === undefined || applyPadding === false ? false : true;
+    applyPadding === false ? false : true;
   return (
     <TripleGrid
       sx={gridSx}

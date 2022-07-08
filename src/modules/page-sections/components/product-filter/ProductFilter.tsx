@@ -102,15 +102,6 @@ const ProductFilter = ({
       };
     return undefined;
   };
-
-  // const criteria: ProductCriteria = {
-  //   limit: defaultLimit || 20,
-  //   brandIds: getCriteriaItem(defaultBrand, selectedBrand),
-  //   categoryIds: getCriteriaItem(defaultCategory, selectedCtg),
-  //   paging: curPage || undefined,
-  //   searchKeywords: searchValue || undefined,
-  //   sorting: getSorting(defaultSorting, selectedSorting),
-  // };
   const criteria = useMemo<ProductCriteria>(
     () => ({
       limit: defaultLimit || 20,
@@ -194,6 +185,9 @@ const ProductFilter = ({
             onSearchSubmit={searchHandler}
             brandList={brandList}
             categoryList={categoryList}
+            categoryInit={
+              defaultCategory !== undefined ? [defaultCategory.toString()] : undefined
+            }
           />
         </Grid>
       ) : (

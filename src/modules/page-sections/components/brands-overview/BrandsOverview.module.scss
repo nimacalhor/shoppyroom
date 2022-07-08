@@ -12,7 +12,7 @@
   &__stack {
     padding: $gutter-xl 0;
     margin-bottom: $gutter-xl;
-    width: min(720px, 90vw);
+    width: min(720px, 90vw) !important;
     text-align: center;
   }
 

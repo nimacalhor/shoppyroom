@@ -1,0 +1,7 @@
+__ simple transition
+__ grid in brand overview   
+__ simple product card
+__ add default active in product filter
+__ avatar in auth form
+__ auth bug
+__ search bug

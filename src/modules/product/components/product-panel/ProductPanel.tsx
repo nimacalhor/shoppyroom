@@ -8,12 +8,14 @@ const ProductPanel = ({
   onSearchSubmit,
   onBrandChange,
   onCtgChange,
+  categoryInit,
 }: {
   brandList: Brand[] | null;
   categoryList: Category[] | null;
   onSearchSubmit: (value: string) => void;
   onBrandChange: (state: (string | undefined)[]) => void;
   onCtgChange: (ctgArr: string[]) => void;
+  categoryInit?: string[];
 }) => {
   return (
     <Stack spacing={2}>
@@ -22,7 +24,11 @@ const ProductPanel = ({
         <BrandsCheckbox brandList={brandList} onChange={onBrandChange} />
       )}
       {categoryList && (
-        <CategoryToggle categoryList={categoryList} onChange={onCtgChange} />
+        <CategoryToggle
+          init={categoryInit || null}
+          categoryList={categoryList}
+          onChange={onCtgChange}
+        />
       )}
     </Stack>
   );
