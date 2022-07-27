@@ -8,7 +8,7 @@ An ecommerce web app for selling fake bedroom accessories
 
 https://magnificent-beijinho-a54d56.netlify.app/
 
-some features like authentication may not work in demo version due to netlify`s limitations in api routes 😬
+Some features like authentication may not work in the demo version due to Netlify's limitations in api routes 😬
 
 
 ### Technologies
