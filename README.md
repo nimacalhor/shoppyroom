@@ -20,3 +20,4 @@ Some features like authentication may not work in the demo version due to Netlif
 - next auth
 - ...
 
+Designed by [radcom.co](https://www.radcom.co)
