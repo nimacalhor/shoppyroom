@@ -1,4 +1,3 @@
-import { nimLog } from "@modules/general/libraries/helpers";
 import { ProductActionTypes } from "../constants/product-action-types";
 import { put, call, take, fork, takeEvery } from "redux-saga/effects";
 import { fetchProductsList } from "../api/product-api";

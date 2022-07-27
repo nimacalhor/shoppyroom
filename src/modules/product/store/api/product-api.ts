@@ -1,4 +1,3 @@
-import { nimLog } from "@modules/general/libraries/helpers";
 import { arrToQuery, getSortingQuery } from "./helper";
 import axios from "axios";
 import {
@@ -21,7 +20,6 @@ export const fetchProductsList = async function (
   }${getSortingQuery(sorting)}`;
 
   if (url[url.length - 1] === "&") url = url.slice(0, -1);
-  nimLog("url", url)();
   try {
     const res = await axios.get<any>(url, {
       headers: {

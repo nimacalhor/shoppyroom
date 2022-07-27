@@ -4,7 +4,6 @@ import ToggleButton from "@mui/material/ToggleButton";
 import PanelAccordion from "../panel-accordion";
 import stl from "./CategoryToggle.module.scss";
 import { useState } from "react";
-import { nimLog } from "@modules/general/libraries/helpers";
 
 const CategoryToggle = ({
   onChange,
@@ -15,7 +14,6 @@ const CategoryToggle = ({
   categoryList: Category[];
   init: string[] | null;
 }) => {
-  nimLog("init", init)();
   const [selectedCtg, setSelectedCtg] = useState<string[] | null>(null);
   const changeHandler = (_: any, newValue: string[]) => {
     setSelectedCtg(() => {

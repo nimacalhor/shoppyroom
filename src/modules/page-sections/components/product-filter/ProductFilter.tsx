@@ -2,7 +2,6 @@ import { getProductList } from "@modules/product/store/actions/product-actions";
 import { Category } from "@modules/category/libraries/category-types";
 import useDeviceType from "@modules/general/libraries/device-type";
 import { Brand } from "@modules/brand/libraries/brand-types";
-import { nimLog } from "@modules/general/libraries/helpers";
 import { useSelector, useDispatch } from "react-redux";
 import hash from "@modules/general/libraries/hash";
 import { RootState } from "@modules/rootReducer";
@@ -170,7 +169,6 @@ const ProductFilter = ({
 
   useEffect(() => {
     if (!isFirstTime) {
-      nimLog("criteria", criteria)();
       dispatch(getProductList(criteria));
     }
   }, [criteria, dispatch, isFirstTime]);

@@ -9,8 +9,8 @@ const nextConfig = {
     return config;
   },
   env:{
-    NEXTAUTH_URL:"https//",
-    NEXTAUTH_SECRET:""
+    NEXTAUTH_URL:"https://mellifluous-jelly-93047e.netlify.app/",
+    NEXTAUTH_SECRET:"verylongstringidontknowwhatitdoesletmetellyousomething"
   }
 }
 

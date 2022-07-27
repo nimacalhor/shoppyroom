@@ -1,4 +1,3 @@
-import { nimLog } from "@modules/general/libraries/helpers";
 import { CartState } from "./../../libraries/cart-types";
 import {
   AddCartAction,
@@ -126,7 +125,6 @@ export const addItemQuantity = function (
   const [item] = state.items.filter(
     (item) => String(item.product.id) === String(id)
   );
-  nimLog("founded Item", item)();
   const result = [...otherItems];
   if (item)
     result.push({

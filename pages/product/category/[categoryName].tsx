@@ -28,7 +28,6 @@ const CategoryProductPage = ({
   criteria: ProductCriteria | null;
 }) => {
   const productPaging = productListEntity ? productListEntity.paging : null;
-  nimLog("category.id", category?.id)();
   return (
     <>
       <ProductFilter

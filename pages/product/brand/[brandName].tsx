@@ -86,7 +86,6 @@ export const getStaticProps: GetStaticProps = async function (
 
     if (productListRes.data.length > 0) {
       productList = productListRes.data;
-      nimLog("products", productList)();
       productListEntity = { ...productListRes };
       if (productListEntity.sorting === undefined)
         delete productListEntity.sorting;
