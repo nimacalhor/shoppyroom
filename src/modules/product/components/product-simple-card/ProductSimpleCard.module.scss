@@ -3,13 +3,13 @@
   height: 350px;
   width: min(250px, 90vw);
   max-width: 100%;
-  position: relative;
+  position: relative !important;
   cursor: pointer;
 
   &__addButton {
-    position: absolute;
-    inset: $gutter-md auto auto $gutter-md;
-    z-index: 2;
+    position: absolute !important;
+    inset: $gutter-md auto auto $gutter-md !important;
+    z-index: 2 !important;
     background-color: rgba($secondary-gray-dark, 0.7);
     @include transition-simple;
 
@@ -20,9 +20,9 @@
 
   &__stack {
     &__img {
-      height: 240px;
-      width: 100%;
-      overflow: hidden;
+      height: 240px !important;
+      width: 100% !important;
+      overflow: hidden !important;
     }
     &__info {
       height: 40%;
