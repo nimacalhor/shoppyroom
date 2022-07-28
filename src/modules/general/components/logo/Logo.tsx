@@ -8,7 +8,7 @@ const Logo = ({ deviceType }: { deviceType: DeviceType }) => {
     <Link href="/" passHref prefetch={false}>
       <div>
         <Image
-          src="/images/logo/logo.svg"
+          src="/images/logo/logo.png"
           alt="shoppyroom"
           width={deviceType.isMobile ? 96 : 142}
           height={deviceType.isMobile ? 39 : 58}
